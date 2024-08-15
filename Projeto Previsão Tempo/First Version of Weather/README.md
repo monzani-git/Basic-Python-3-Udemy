@@ -82,7 +82,7 @@ r3 = requests.get(current_conditionsAPIUrl)
 ```
 
 **Verificação de Sucesso**: Se a requisição não for bem-sucedida, uma mensagem de erro será exibida.
-**Sucesso**: Progama ira imprimir 
+
 ```python
 if (r3.status_code != 200):
     print('Não foi possível obter condição Local (R3)')

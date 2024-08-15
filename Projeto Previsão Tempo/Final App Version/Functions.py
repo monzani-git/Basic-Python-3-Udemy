@@ -40,4 +40,8 @@ else:
             print('Não foi possível obter condição Local (R3)')
         else:
             current_conditions_response = json.loads(r3.text)
-            print(pprint.pprint(json.loads(r3.text)))
+            text_clima = current_conditions_response[0]['WeatherText']
+            temperatura = current_conditions_response[0]['Temperature']['Metric']['Value']
+            
+            print('Clima no momento: ', text_clima)
+            print('Temperatura: '+ str(temperatura) + ' Graus Celsius')
