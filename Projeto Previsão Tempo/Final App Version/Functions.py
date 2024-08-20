@@ -1,5 +1,6 @@
 import requests
 import json
+import datetime
 import pprint
 
 accuweatherAPIKEY = 'gpu6gl6y2O4Zrbh82ih49QqkwsBSwaQH' #Trocar API Key quando expirar prazo
