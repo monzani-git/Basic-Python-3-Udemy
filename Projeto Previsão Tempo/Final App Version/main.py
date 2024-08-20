@@ -1,5 +1,6 @@
 import requests
 import json
+import datetime
 import Functions
 
 try:
@@ -14,7 +15,22 @@ try:
     semana = Functions.get_daily(local['codigo_local'])
     
     for dia in semana:
-        print(dia['dia'])
+        
+        traducao_dias_semana = {
+        'Monday': 'Segunda-feira',
+        'Tuesday': 'Terça-feira',
+        'Wednesday': 'Quarta-feira',
+        'Thursday': 'Quinta-feira',
+        'Friday': 'Sexta-feira',
+        'Saturday': 'Sábado',
+        'Sunday': 'Domingo'
+    }
+        
+        data = datetime.datetime.fromtimestamp(dia['dia'])
+        dia_da_semana_ingles = data.strftime('%A')
+        dia_da_semana = traducao_dias_semana[dia_da_semana_ingles]
+        
+        print(dia_da_semana)
         print(f"Minima: {(dia['min'] - 32) * 5 / 9:.1f}°C")
         print(f"Máxima: {(dia['max'] - 32) * 5 / 9:.1f}°C")
         print(f"Clima: {dia['clima']}")
