@@ -34,7 +34,7 @@ try:
         print(f"Minima: {(dia['min'] - 32) * 5 / 9:.1f}°C")
         print(f"Máxima: {(dia['max'] - 32) * 5 / 9:.1f}°C")
         print(f"Clima: {dia['clima']}")
-        print("----------------------")
+        print("------------------")
 
 except:
     print('Erro ao Processar Solicitação. Entre em contato com Administrador')
