@@ -8,7 +8,7 @@ def get_coordinates():
 
     r = requests.get('http://www.geoplugin.net/json.gp')
 
-    if (r.status_code!= 200):
+    if (r.status_code  != 200):
         print('Não foi possivel obter as coordenadas (get_coordinates)')
         return None
     else:
@@ -61,3 +61,27 @@ def get_present_condition(codigo_local, nome_local):
                 return info_clima
             except:
                 return None
+
+def get_daily (codigo_local):
+    DailyAPIUrl = (
+        f"http://dataservice.accuweather.com/forecasts/v1/daily/5day/{codigo_local}"
+        f"?apikey={accuweatherAPIKEY}&language=pt-br"
+    )
+    r = requests.get(DailyAPIUrl)
+    if (r.status_code != 200):
+        print('Não foi possivel obter clima da semana (get_daily)')
+        return  None  
+    else:
+        try:
+            DailyAPIUrl = json.loads(r.text)
+            info_semana = []
+            for dia in DailyAPIUrl['DailyForecasts']:
+                ClimaDia = {}
+                ClimaDia ['max'] = dia['Temperature']['Maximum']['Value']
+                ClimaDia ['min'] = dia['Temperature']['Minimum']['Value']
+                ClimaDia ['clima'] = dia['Day']['IconPhrase']
+                ClimaDia ['dia'] = dia['EpochDate']
+                info_semana.append(ClimaDia)
+            return info_semana
+        except:
+            return None
