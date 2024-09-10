@@ -1,4 +1,4 @@
-import func_imc
+import Functions
 
 print('-----Vamos Calcular seu IMC-----')
 print('--------------------------------')
@@ -37,8 +37,8 @@ while valid_altura == False:
     except ValueError:
         print('Formato de altura inválido. Use ponto para separar os decimais (Ex. 1.72).')
 
-imc_valor = func_imc.imc(peso, altura)
-classificacao = func_imc.class_imc(sexo, imc_valor)
+imc_valor = Functions.imc(peso, altura)
+classificacao = Functions.class_imc(sexo, imc_valor)
 
 print('-----Resultado do seu IMC-----')
 print('--------------------------------')

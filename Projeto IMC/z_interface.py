@@ -1,5 +1,5 @@
 import tkinter as tk
-import func_imc
+import Functions
 
 def calcular_imc():
     try:
@@ -9,8 +9,8 @@ def calcular_imc():
         sexo = entry_sexo.get().lower()
 
         # Calcular IMC
-        imc_valor = func_imc.imc(peso, altura)
-        classificacao = func_imc.class_imc(sexo, imc_valor)
+        imc_valor = Functions.imc(peso, altura)
+        classificacao = Functions.class_imc(sexo, imc_valor)
         
         # Atualizar o label de resultado com o IMC e a classificação
         label_resultado.config(text=f"Seu IMC é: {imc_valor:.2f}\nClassificação: {classificacao}")
